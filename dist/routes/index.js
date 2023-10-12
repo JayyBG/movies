@@ -1,0 +1,20 @@
+"use strict";
+var __importDefault = (this && this.__importDefault) || function (mod) {
+    return (mod && mod.__esModule) ? mod : { "default": mod };
+};
+Object.defineProperty(exports, "__esModule", { value: true });
+const express_1 = __importDefault(require("express"));
+const embed_1 = __importDefault(require("./v2/embed"));
+const home_1 = __importDefault(require("./v3/home"));
+const search_1 = __importDefault(require("./v3/search"));
+const data_1 = __importDefault(require("./v3/movie/data"));
+const data_2 = __importDefault(require("./v3/tv/data"));
+const episodes_1 = __importDefault(require("./v3/tv/episodes"));
+const router = express_1.default.Router();
+router.get("/v2/embed/:media", embed_1.default);
+router.get("/v3/home", home_1.default);
+router.get("/v3/search", search_1.default);
+router.get("/v3/movie/:id", data_1.default);
+router.get("/v3/tv/:id", data_2.default);
+router.get("/v3/tv/:id/episodes", episodes_1.default);
+exports.default = router;

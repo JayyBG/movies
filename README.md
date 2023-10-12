@@ -5,22 +5,27 @@
 - **[ripper.lol](https://ripper.lol)**
 
 ## 🖥️ Requirements
-- Static Web Hosting (Netlify, GitHub Pages, etc.)
+- Web server that supports Node.js
+- Reverse proxy to enable SSL (nginx, etc.)
+- [cloudpanel.io](https://cloudpanel.io) Recommended for easiest & fastest setup
 
 ## 📂 Download
 
 1. Install Git on your system if you haven't already.
-2. Run `git clone https://git.ripper.lol/ripper/Stream.git`
+2. Run `git clone https://git.ripper.lol/ripper/Stream-API.git`
+3. You may need to authenticate using your username and password.
 
 ## 🔧 Setup
 1. Install Node.js if you haven't already from [nodejs.org](https://nodejs.org)
 2. Download the script using instructions above.
 3. Open a terminal in the script directory.
-4. Run `npm install` to install dependencies, then `npm run dev` to start the dev server.
-5. Open `http://localhost:5173` in your browser.
-6. **(Optional)** Change the site logo by uploading a png file to `/public/assets` and naming it `logo.png`
-7. **(Optional)** Change the main color of the site by opening `/src/styles/main.scss` and editing the line with `$primary-color: ...;`
-8. **(Optional)** Change the config in `/src/config.ts` and change the site name in `/index.html`
-9. **(Optional)** Add any advertisement codes in `/index.html` (Adsterra, Clickadu, etc.)
-10. Run `npm run build` in the terminal to build the production files
-11. Upload the contents of the `/dist` folder to your web hosting.
+4. Run `npm install` to install dependencies.
+5. Duplicate the `.example.env` file and rename `.env`
+6. Update `.env` with your own values.
+7. Run `npm run dev` to start the dev server, API will be available on port `3000`
+8. Ensure everything is functioning correctly.
+9. Run `npm build` to build the production-ready script.
+10. Upload all files to your server excluding `node_modules`
+11. Go to the uploaded folder path in your server terminal.
+12. Run `npm install` then `npm start` to start the production API.
+13. **(Optional)** Setup your reverse proxy to `127.0.0.1:3000`
